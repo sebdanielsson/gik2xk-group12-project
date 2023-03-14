@@ -1,0 +1,15 @@
+// DO NOT PUT PRODUCTION CREDENTIALS HERE
+{
+  "sqltools.connections": [
+    {
+      "previewLimit": 50,
+      "server": "localhost",
+      "port": 5432,
+      "driver": "PostgreSQL",
+      "name": "store_db",
+      "database": "store_db",
+      "username": "postgres",
+      "password": "postgres"
+    }
+  ]
+}
