@@ -5,7 +5,7 @@
 ### Start the database
 
 ```sh
-docker run -d --name store_db -e POSTGRES_PASSWORD=postgres -e POSTGRES_DB=store -p 5432:5432 -v store_db:/var/lib/postgresql/data postgres
+docker run -d --name store_db -e POSTGRES_PASSWORD=postgres -e POSTGRES_DB=store_development -p 5432:5432 -v store_db:/var/lib/postgresql/data postgres
 ```
 
 ### Start backend
