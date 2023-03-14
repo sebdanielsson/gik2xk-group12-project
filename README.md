@@ -24,4 +24,5 @@ npm run start
 
 ### Live
 
-Go to <http://localhost:3000>
+**Backend:** <http://localhost:5500>  
+**Frontend:** <http://localhost:3000>
