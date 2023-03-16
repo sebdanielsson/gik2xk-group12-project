@@ -11,14 +11,11 @@ app.use((req, res, next) => {
 });
 app.use(logger('dev'));
 app.use(express.json());
-app.use(express.urlencoded({ extended: false }));
+app.use(express.urlencoded({extended: false}));
 app.use(cookieParser());
 
 // API routes
-app.use('/users', require('./routes/usersRoute'));
-app.use('/carts', require('./routes/cartsRoute'));
-app.use('/cartrows', require('./routes/cartRowsRoute'));
-app.use('/products', require('./routes/productsRoute'));
-app.use('/ratings', require('./routes/ratingsRoute'));
+app.use('/users', require('./routes/userRoutes'));
+app.use('/products', require('./routes/productRoutes'));
 
 module.exports = app;
