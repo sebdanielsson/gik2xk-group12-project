@@ -7,7 +7,7 @@
       "port": 5432,
       "driver": "PostgreSQL",
       "name": "store_db",
-      "database": "store_db",
+      "database": "store_development",
       "username": "postgres",
       "password": "postgres"
     }
