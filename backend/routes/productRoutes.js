@@ -43,16 +43,12 @@ router.get('/:id', (req, res) => {
   });
 });
 
-// Delete product by id ** SKA Exporteras /
-//läggas till Services
+// Delete product by id
 router.delete('/', (req, res) => {
-  db.product
-    .destroy({
-      where: {id: req.body.id},
-    })
-    .then(() => {
-      res.json(`Produkten raderades`);
-    });
+  const id = req.body.id;
+  productService.destroy(id).then((result) => {
+    res.status(result.status).json(result.data);
+  });
 });
 
 // Add rating to product
@@ -66,8 +62,11 @@ router.post('/:id/addRating', (req, res) => {
 });
 
 // Add product to cart
-router.post(':id/addToCart', (req, res) => {
-  productService.addToCart().then((result) => {
+router.post('/:id/addToCart', (req, res) => {
+  const user_id = req.body.user_id;
+  const product_id = req.body.product_id;
+  const quantity = req.body.quantity;
+  productService.addToCart(user_id, product_id, quantity).then((result) => {
     res.status(result.status).json(result.data);
   });
 });
