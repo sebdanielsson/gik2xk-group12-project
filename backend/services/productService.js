@@ -87,7 +87,10 @@ async function _findOrCreateCart(user_id) {
     } else {
       // If there is no incomplete cart, create a new one and return its id
       console.log('Cart hittades ej! Skapar nytt...');
-      const newCart = await db.cart.create({user_id});
+      const newCart = await db.cart.create({
+        user_id: user_id,
+        paid: false,
+      });
       return newCart;
     }
   } catch (error) {
