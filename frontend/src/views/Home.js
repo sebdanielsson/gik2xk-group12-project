@@ -1,8 +1,7 @@
-/* import ItemComponent from '../components/ItemComponent'; */
-import ItemList from '../components/ItemList';
+import ProductList from '../components/ProductList';
 
 function Home() {
-  <ItemList></ItemList>;
+  <ProductList />;
 }
 
 export default Home;

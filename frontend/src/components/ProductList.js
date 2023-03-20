@@ -1,9 +1,9 @@
 import {Box} from '@mui/material';
-import ItemComponent from './ItemComponent';
+import ProductCard from './ProductCard';
 import {getAll} from '../models/ProductModel';
 import {useEffect, useState} from 'react';
 
-function ItemList({pathname}) {
+function ProductList({pathname}) {
   const [products, setProducts] = useState([]);
 
   useEffect(() => {
@@ -13,10 +13,10 @@ function ItemList({pathname}) {
   return (
     <Box>
       {products.map((product) => {
-        return <ItemComponent key={product.id} product={product} />;
+        return <ProductCard key={product.id} product={product} />;
       })}
     </Box>
   );
 }
 
-export default ItemList;
+export default ProductList;
