@@ -15,12 +15,12 @@ function App() {
 
       <Container sx={{marginTop: '6rem'}}>
         <Routes>
-          <Route exact path="/" element={<Products></Products>}></Route>
-          <Route exact path="/products" element={<Products></Products>}></Route>
-          <Route exact path="/products/:id" element={<ProductDetail></ProductDetail>}></Route>
-          <Route exact path="/posts/:id/edit" element={<ProductEdit></ProductEdit>}></Route>
-          <Route exact path="/product/new" element={<ProductAdd></ProductAdd>}></Route>
-          <Route exact path="/cart" element={<Cart></Cart>}></Route>
+          <Route exact path="/" element={<Products />}></Route>
+          <Route exact path="/products" element={<Products />}></Route>
+          <Route exact path="/products/:id" element={<ProductDetail />}></Route>
+          <Route exact path="/posts/:id/edit" element={<ProductEdit />}></Route>
+          <Route exact path="/product/new" element={<ProductAdd />}></Route>
+          <Route exact path="/cart" element={<Cart />}></Route>
         </Routes>
       </Container>
     </div>
