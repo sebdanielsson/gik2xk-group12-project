@@ -1,7 +1,6 @@
 import './App.css';
 import {Routes, Route} from 'react-router-dom';
 import {Container} from '@mui/system';
-import Home from './views/Home';
 import Products from './views/Products';
 import ProductDetail from './views/ProductDetail';
 import ProductEdit from './views/ProductEdit';
@@ -16,7 +15,7 @@ function App() {
 
       <Container sx={{marginTop: '6rem'}}>
         <Routes>
-          <Route exact path="/" element={<Home></Home>}></Route>
+          <Route exact path="/" element={<Products></Products>}></Route>
           <Route exact path="/products" element={<Products></Products>}></Route>
           <Route exact path="/products/:id" element={<ProductDetail></ProductDetail>}></Route>
           <Route exact path="/posts/:id/edit" element={<ProductEdit></ProductEdit>}></Route>
