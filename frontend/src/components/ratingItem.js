@@ -4,14 +4,13 @@ import Rating from '@mui/material/Rating';
 import Typography from '@mui/material/Typography';
 
 export default function ratingItem() {
-  const [value, setValue] = React.useState<number | null>(2);
+  const [value, setValue] = (React.useState < number) | (null > 2);
 
   return (
     <Box
       sx={{
-        '& > legend': { mt: 2 },
-      }}
-    >
+        '& > legend': {mt: 2},
+      }}>
       <Typography component="legend">Controlled</Typography>
       <Rating
         name="simple-controlled"
