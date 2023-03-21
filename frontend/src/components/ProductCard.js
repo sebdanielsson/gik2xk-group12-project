@@ -4,11 +4,16 @@ import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
 import Typography from '@mui/material/Typography';
 import {CardActionArea} from '@mui/material';
+import RatingItem from './RatingItem';
+import BasicButton from './BasicButton';
+import { Box } from '@mui/system';
+
 
 function ProductCard(props) {
   const {product} = props;
   return (
     <Card sx={{maxWidth: 345}}>
+      <RatingItem/>
       <CardActionArea>
         <CardMedia component="img" height="140" image={product.imageUrl} alt={product.title} />
         <CardContent>
@@ -21,6 +26,7 @@ function ProductCard(props) {
           <Typography variant="body2" color="text.secondary">
             {product.price}
           </Typography>
+          <BasicButton/>
         </CardContent>
       </CardActionArea>
     </Card>

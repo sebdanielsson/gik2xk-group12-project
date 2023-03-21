@@ -2,6 +2,7 @@ import {Box} from '@mui/material';
 import ProductCard from './ProductCard';
 import {getAll} from '../models/ProductModel';
 import {useEffect, useState} from 'react';
+import RatingItem from './RatingItem';
 
 function ProductList({pathname}) {
   const [products, setProducts] = useState([]);
