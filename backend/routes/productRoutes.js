@@ -5,7 +5,7 @@ const db = require('../models');
 // Get all products
 router.get('/', (req, res) => {
   productService.getAll().then((result) => {
-    res.status(result.status).json(result.data);
+      res.status(result.status).json(result.data);
   });
 });
 
@@ -61,6 +61,13 @@ router.post('/:id/addRating', (req, res) => {
   });
 });
 
+// Get RatingByID
+router.get('/:id/GetRating', (req, res) => {
+  productService.getRatingByID().then((result) => {
+    res.status(result.status).json(result.data);
+  });
+});
+
 // Add product to cart
 router.post('/:id/addToCart', (req, res) => {
   const user_id = req.body.user_id;
@@ -70,5 +77,6 @@ router.post('/:id/addToCart', (req, res) => {
     res.status(result.status).json(result.data);
   });
 });
+
 
 module.exports = router;

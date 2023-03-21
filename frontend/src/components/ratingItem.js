@@ -3,9 +3,9 @@ import Box from '@mui/material/Box';
 import Rating from '@mui/material/Rating';
 import Typography from '@mui/material/Typography';
 
-function RatingItem() {
-  const [value, setValue] = React.useState(2);
-
+function RatingItem(props) {
+  const [value, setValue] = React.useState(4);
+  console.log("Test"+props)
   return (
     <Box
       sx={{

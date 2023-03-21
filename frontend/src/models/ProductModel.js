@@ -2,6 +2,10 @@ import api from '../api.js';
 
 export async function getAll(url = '/products') {
   const result = await api.get(url);
+ /*  array.forEach(result => {
+    result.rating = api.getRatingById(result.id);
+    
+  }); */
 
   if (result.status === 200) return result.data;
   else {

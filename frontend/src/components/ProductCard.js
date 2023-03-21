@@ -18,7 +18,7 @@ function ProductCard(props) {
   const {product} = props;
   return (
     <Card sx={{maxWidth: 345}}>
-      <RatingItem/>
+      <RatingItem products={product} />
       <CardActionArea>
         <CardMedia component="img" height="140" image={product.imageUrl} alt={product.title} />
         <CardContent>

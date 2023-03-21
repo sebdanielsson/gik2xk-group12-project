@@ -6,7 +6,8 @@ import {getOne} from '../models/ProductModel';
 
 function ProductDetail() {
   const params = useParams();
-  const productId = params.id;
+  const productId = 1;
+ /*  const productId = params.id; */
 
   const [product, setProduct] = useState({});
 

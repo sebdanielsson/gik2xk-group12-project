@@ -1,18 +1,24 @@
-/* import api from '../api.js';
+import api from '../api.js';
 
-export async function getAll() {
-  const result = await api.get('/ratings');
+export async function getRatingById() {
+  const result = await api.get('/ratings/id');
 
-  for(i =0;: i < getAll.length; i++) {
-    var rating = getall[i].rating;
-     
+  var sumrating = 0;
+  var numratings = result.length
+  
+  for(i =0; i < numratings; i++) {
+    sumrating += result[i].rating;
+
+
+  };
   if (result.status === 200) return result.data;
   else {
     console.log(result.status);
     console.log(result.data);
     return [];
   }
-} */
+} 
+
 /* 
         Behöver kollas på kanske lirar.
         Exempel på forloop
@@ -30,5 +36,5 @@ export async function getAll() {
     console.log(result.data);
     return [];
   }
-} */
-
+}
+*/
