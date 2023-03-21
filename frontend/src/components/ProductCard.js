@@ -6,7 +6,12 @@ import Typography from '@mui/material/Typography';
 import {CardActionArea} from '@mui/material';
 import RatingItem from './RatingItem';
 import BasicButton from './BasicButton';
-import { Box } from '@mui/system';
+import { useNavigate } from 'react-router-dom';
+
+function Form() {
+  const navigate = useNavigate();
+
+}
 
 
 function ProductCard(props) {
@@ -26,10 +31,11 @@ function ProductCard(props) {
           <Typography variant="body2" color="text.secondary">
             {product.price}
           </Typography>
-          <BasicButton/>
-        </CardContent>
+          <BasicButton></BasicButton>
+          </CardContent>
       </CardActionArea>
     </Card>
+
   );
 }
 
