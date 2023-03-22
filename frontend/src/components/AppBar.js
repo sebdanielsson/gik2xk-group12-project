@@ -16,7 +16,7 @@ import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 import MoreIcon from '@mui/icons-material/MoreVert';
 import {Typography} from '@mui/material';
 
-const pages = ['Products', 'Pricing', 'Blog'];
+const pages = ['Products', 'Pricing'];
 
 const Search = styled('div')(({theme}) => ({
   position: 'relative',
@@ -130,14 +130,16 @@ function PrimarySearchAppBar() {
       }}
       open={isMobileMenuOpen}
       onClose={handleMobileMenuClose}>
-      <MenuItem>
-        <IconButton size="large" aria-label="show items in cart" color="inherit">
-          <Badge badgeContent={4} color="error">
-            <ShoppingCartIcon />
-          </Badge>
-        </IconButton>
-        <p>Cart</p>
-      </MenuItem>
+      <Link to={'/cart'}>
+        <MenuItem>
+          <IconButton size="large" aria-label="show items in cart" color="inherit">
+            <Badge badgeContent={4} color="error">
+              <ShoppingCartIcon />
+            </Badge>
+          </IconButton>
+          <p>Cart</p>
+        </MenuItem>
+      </Link>
       <MenuItem onClick={handleProfileMenuOpen}>
         <IconButton
           size="large"
@@ -199,7 +201,9 @@ function PrimarySearchAppBar() {
           <Box sx={{display: {xs: 'none', md: 'flex', marginLeft: 'auto'}}}>
             <IconButton size="large" aria-label="show products in cart" color="inherit">
               <Badge badgeContent={4} color="error">
-                <ShoppingCartIcon />
+                <Link to={'/cart'}>
+                  <ShoppingCartIcon />
+                </Link>
               </Badge>
             </IconButton>
             <IconButton
@@ -213,6 +217,7 @@ function PrimarySearchAppBar() {
               <AccountCircle />
             </IconButton>
           </Box>
+
           <Box sx={{display: {xs: 'flex', md: 'none'}}}>
             <IconButton
               size="large"
