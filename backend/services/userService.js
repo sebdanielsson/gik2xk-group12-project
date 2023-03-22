@@ -41,7 +41,7 @@ async function getCart(user_id) {
       },
       include: {
         model: db.product,
-        attributes: ['title', 'price'],
+        attributes: ['title', 'price', 'imageUrl'],
       },
     });
     if (cart) {
@@ -58,18 +58,19 @@ function _cleanUpCart(cart) {
   const cleanCart = {
     id: cart.id,
     user: cart.userId,
-    totalTotal: 0,
+    cartTotal: 0,
     products: [],
   };
 
   if (cart.products) {
     cart.products.forEach((product) => {
       const totalPrice = product.cartRow.quantity * product.price;
-      cleanCart.totalTotal += totalPrice;
+      cleanCart.cartTotal += totalPrice;
       cleanCart.products.push({
         title: product.title,
         price: product.price,
         quantity: product.cartRow.quantity,
+        imageUrl: product.imageUrl,
         totalPrice: totalPrice,
       });
     });
