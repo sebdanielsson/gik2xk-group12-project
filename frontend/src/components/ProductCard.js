@@ -11,7 +11,7 @@ function ProductCard(props) {
   const {product} = props;
   return (
     <Card sx={{maxWidth: 345}}>
-      <RatingItem/>
+      <RatingItem />
       <CardActionArea>
         <CardMedia component="img" height="140" image={product.imageUrl} alt={product.title} />
         <CardContent>
@@ -24,13 +24,10 @@ function ProductCard(props) {
           <Typography variant="body2" color="text.secondary">
             {product.price}
           </Typography>
-          <Link to={{}}>
           <BasicButton></BasicButton>
-          </Link>
-          </CardContent>
+        </CardContent>
       </CardActionArea>
     </Card>
-
   );
 }
 
