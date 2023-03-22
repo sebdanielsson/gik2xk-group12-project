@@ -1,8 +1,7 @@
-import {Box} from '@mui/material';
 import ProductCard from './ProductCard';
 import {getAll} from '../models/ProductModel';
 import {useEffect, useState} from 'react';
-import {Link} from 'react-router-dom';
+import {Grid} from '@mui/material';
 
 function ProductList({pathname}) {
   const [products, setProducts] = useState([]);
@@ -11,17 +10,13 @@ function ProductList({pathname}) {
     getAll(pathname).then((products) => setProducts(products));
   }, [pathname]);
 
-  return (
-    <Box>
-      {products.map((product) => {
-        return (
-          <Link to={`/products/${product.id}`}>
-            <ProductCard key={product.id} product={product} />
-          </Link>
-        );
-      })}
-    </Box>
-  );
+  return products.map((product) => {
+    return (
+      <Grid>
+        <ProductCard product={product} key={product.id} />
+      </Grid>
+    );
+  });
 }
 
 export default ProductList;
