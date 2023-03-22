@@ -25,7 +25,7 @@ function ProductCard(props) {
             alt={product.title}
           />
           <CardContent>
-            <Typography gutterBottom variant="h5" component="div">
+            <Typography gutterBottom variant="h6" component="div">
               {product.title}
             </Typography>
             <Typography variant="body2" color="text.secondary" style={{marginBottom: 10}}>

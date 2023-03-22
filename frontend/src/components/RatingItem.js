@@ -12,7 +12,7 @@ function RatingItem(props) {
         '& > legend': {mt: 2},
       }}>
       <Typography></Typography>
-      <Rating name="read-only" value={value} readOnly />
+      <Rating name="read-only" value={value} size="small" readOnly />
     </Box>
   );
 }
