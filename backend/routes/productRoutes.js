@@ -73,8 +73,9 @@ router.get('/:id/getRating', (req, res) => {
 // Add product to cart
 router.post('/:id/addToCart', (req, res) => {
   const user_id = req.body.user_id;
-  const product_id = req.body.product_id;
+  const product_id = req.params.id;
   const quantity = req.body.quantity;
+
   productService.addToCart(user_id, product_id, quantity).then((result) => {
     res.status(result.status).json(result.data);
   });
