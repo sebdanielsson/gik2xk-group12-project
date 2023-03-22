@@ -4,12 +4,15 @@ const db = require('../models');
 // Get all products
 async function getAll() {
   try {
-    const allProducts = await db.product.findAll();
+    const allProducts = await db.product.findAll({
+    });
+    console.log(allProducts)
     return createResponseSuccess(allProducts);
   } catch (error) {
     return createResponseError(error.status, error.message);
   }
 }
+
 
 // Create new product
 async function create(product) {
@@ -38,6 +41,11 @@ async function getProductById(id) {
       where: {id},
       include: [db.rating],
     });
+     
+/*       const rating = await db.rating.findAll({
+        where: {id},
+        include: [db.rating],
+      }); */
     /* Om allt blev bra, returnera post */
     return createResponseSuccess(product);
   } catch (error) {
@@ -60,6 +68,17 @@ async function addRating(id, rating) {
     });
 
     return createResponseSuccess(productWithRating);
+  } catch (error) {
+    return createResponseError(error.status, error.message);
+  }
+}
+// Get RatingByID products
+async function getRatingByID(id) {
+  try {
+    const rating = await db.rating.findAll({
+      where: {id}
+    });
+    return createResponseSuccess(rating);
   } catch (error) {
     return createResponseError(error.status, error.message);
   }
@@ -133,4 +152,5 @@ module.exports = {
   addRating,
   destroy,
   addToCart,
+  getRatingByID
 };
