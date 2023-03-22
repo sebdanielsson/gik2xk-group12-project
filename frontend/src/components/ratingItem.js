@@ -1,28 +1,21 @@
-/* import * as React from 'react';
+import * as React from 'react';
 import Box from '@mui/material/Box';
 import Rating from '@mui/material/Rating';
 import Typography from '@mui/material/Typography';
 
-export default function ratingItem() {
-  const [value, setValue] = React.useState<number | null>(2);
-
+function RatingItem(props) {
+  const [value, setValue] = React.useState(4);
+  console.log("Test"+props)
   return (
     <Box
       sx={{
         '& > legend': { mt: 2 },
       }}
     >
-      <Typography component="legend">Controlled</Typography>
-      <Rating
-        name="simple-controlled"
-        value={value}
-        onChange={(event, newValue) => {
-          setValue(newValue);
-        }}
-      />
-      <Typography component="legend">Read only</Typography>
+      <Typography></Typography>
       <Rating name="read-only" value={value} readOnly />
+
     </Box>
   );
 }
- */
+export default RatingItem;

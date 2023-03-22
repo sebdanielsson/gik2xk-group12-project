@@ -9,11 +9,11 @@ const theme = createTheme({
   palette: {
     mode: 'light',
     primary: {
-      main: '#3AAED8',
+      main: '#3f51b5',
     },
     secondary: {
-      main: '#2BD9FE',
-      contrastText: '#52AA5E',
+      main: '#3f51b5',
+      contrastText: '#3f51b5',
     },
   },
   typography: {
