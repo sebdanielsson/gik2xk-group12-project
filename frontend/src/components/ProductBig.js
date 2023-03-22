@@ -7,7 +7,12 @@ function ProductBig({product}) {
   return product ? (
     <Grid container spacing={3}>
       <Grid item xs={12} sm={6}>
-        <Image src={product.imageUrl} />
+        <Image
+          src={
+            product.imageUrl ||
+            'https://image.spreadshirtmedia.net/image-server/v1/compositions/T812A2PA5886PT17X48Y77D155266323W24996H9381/views/1,width=550,height=550,appearanceId=2,backgroundColor=000000,noPt=true/meh-ascii-art-internet-emoticon-emoji-mens-premium-t-shirt.jpg'
+          }
+        />
       </Grid>
       <Grid item xs={12} sm={6}>
         <Typography variant="h5" component="h3">
