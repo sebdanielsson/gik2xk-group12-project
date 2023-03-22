@@ -133,9 +133,7 @@ function PrimarySearchAppBar() {
       <Link to={'/cart'}>
         <MenuItem>
           <IconButton size="large" aria-label="show items in cart" color="inherit">
-            <Badge badgeContent={4} color="error">
-              <ShoppingCartIcon />
-            </Badge>
+            <ShoppingCartIcon />
           </IconButton>
           <p>Cart</p>
         </MenuItem>
@@ -200,11 +198,9 @@ function PrimarySearchAppBar() {
           </Search>
           <Box sx={{display: {xs: 'none', md: 'flex', marginLeft: 'auto'}}}>
             <IconButton size="large" aria-label="show products in cart" color="inherit">
-              <Badge badgeContent={4} color="error">
-                <Link to={'/cart'}>
-                  <ShoppingCartIcon />
-                </Link>
-              </Badge>
+              <Link to={'/cart'}>
+                <ShoppingCartIcon />
+              </Link>
             </IconButton>
             <IconButton
               size="large"
