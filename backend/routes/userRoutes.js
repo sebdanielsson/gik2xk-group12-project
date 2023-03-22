@@ -42,9 +42,10 @@ router.delete('/', (req, res) => {
   });
 });
 
-// Get user cart >>> OBS! Görs sist <<<
-router.get('/cart', (req, res) => {
-  userService.getCart().then((result) => {
+// Get user cart
+router.get('/:id/getCart', (req, res) => {
+  const user = req.params.id;
+  userService.getCart(user).then((result) => {
     res.status(result.status).json(result.data);
   });
 });
