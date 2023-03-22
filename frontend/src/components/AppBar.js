@@ -29,7 +29,7 @@ const Search = styled('div')(({theme}) => ({
   marginLeft: 0,
   width: '100%',
   [theme.breakpoints.up('sm')]: {
-    marginLeft: theme.spacing(3),
+    marginLeft: theme.spacing(2),
     width: 'auto',
   },
 }));
@@ -197,9 +197,9 @@ function PrimarySearchAppBar() {
             <StyledInputBase placeholder="Search…" inputProps={{'aria-label': 'search'}} />
           </Search>
           <Box sx={{display: {xs: 'none', md: 'flex', marginLeft: 'auto'}}}>
-            <IconButton size="large" aria-label="show products in cart" color="inherit">
+            <IconButton size="large" aria-label="show products in cart">
               <Link to={'/cart'}>
-                <ShoppingCartIcon />
+                <ShoppingCartIcon color="pink" />
               </Link>
             </IconButton>
             <IconButton

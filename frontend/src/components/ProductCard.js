@@ -12,7 +12,7 @@ import {Link} from 'react-router-dom';
 function ProductCard(props) {
   const {product} = props;
   return (
-    <Card sx={{maxWidth: 345}}>
+    <Card sx={{minWidth: 240, maxWidth: 300}}>
       <Link to={`/products/${product.id}`} style={{textDecoration: 'inherit', color: 'inherit'}}>
         <CardActionArea>
           <CardMedia

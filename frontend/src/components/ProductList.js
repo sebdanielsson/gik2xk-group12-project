@@ -10,13 +10,15 @@ function ProductList({pathname}) {
     getAll(pathname).then((products) => setProducts(products));
   }, [pathname]);
 
-  return products.map((product) => {
-    return (
-      <Grid>
-        <ProductCard product={product} key={product.id} />
-      </Grid>
-    );
-  });
+  return (
+    <Grid container direction="row" justifyContent="center" alignItems="flex-start" spacing={2}>
+      {products.map((product) => (
+        <Grid item xs key={product.id}>
+          <ProductCard product={product} />
+        </Grid>
+      ))}
+    </Grid>
+  );
 }
 
 export default ProductList;
