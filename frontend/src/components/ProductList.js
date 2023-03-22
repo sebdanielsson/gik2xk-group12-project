@@ -2,7 +2,7 @@ import {Box} from '@mui/material';
 import ProductCard from './ProductCard';
 import {getAll} from '../models/ProductModel';
 import {useEffect, useState} from 'react';
-
+import {Link} from 'react-router-dom';
 
 function ProductList({pathname}) {
   const [products, setProducts] = useState([]);
@@ -14,7 +14,11 @@ function ProductList({pathname}) {
   return (
     <Box>
       {products.map((product) => {
-        return <ProductCard key={product.id} product={product} />;
+        return (
+          <Link to={`/products/${product.id}`}>
+            <ProductCard key={product.id} product={product} />
+          </Link>
+        );
       })}
     </Box>
   );
