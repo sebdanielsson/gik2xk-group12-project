@@ -5,16 +5,14 @@ import Typography from '@mui/material/Typography';
 
 function RatingItem(props) {
   const [value, setValue] = React.useState(4);
-  console.log("Test"+props)
+  /* console.log("Test"+props) */
   return (
     <Box
       sx={{
-        '& > legend': { mt: 2 },
-      }}
-    >
+        '& > legend': {mt: 2},
+      }}>
       <Typography></Typography>
       <Rating name="read-only" value={value} readOnly />
-
     </Box>
   );
 }
