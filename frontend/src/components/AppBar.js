@@ -6,7 +6,6 @@ import Toolbar from '@mui/material/Toolbar';
 import IconButton from '@mui/material/IconButton';
 import {Link} from 'react-router-dom';
 import InputBase from '@mui/material/InputBase';
-import Badge from '@mui/material/Badge';
 import MenuItem from '@mui/material/MenuItem';
 import Menu from '@mui/material/Menu';
 import MenuIcon from '@mui/icons-material/Menu';
@@ -133,7 +132,7 @@ function PrimarySearchAppBar() {
       <Link to={'/cart'}>
         <MenuItem>
           <IconButton size="large" aria-label="show items in cart" color="inherit">
-            <ShoppingCartIcon />
+            <ShoppingCartIcon style={{fill: '#FFFFFF'}} />
           </IconButton>
           <p>Cart</p>
         </MenuItem>
@@ -197,11 +196,11 @@ function PrimarySearchAppBar() {
             <StyledInputBase placeholder="Search…" inputProps={{'aria-label': 'search'}} />
           </Search>
           <Box sx={{display: {xs: 'none', md: 'flex', marginLeft: 'auto'}}}>
-            <IconButton size="large" aria-label="show products in cart">
-              <Link to={'/cart'}>
-                <ShoppingCartIcon color="pink" />
-              </Link>
-            </IconButton>
+            <Link to={'/cart'}>
+              <IconButton size="large" aria-label="show products in cart" color="inherit">
+                <ShoppingCartIcon style={{fill: '#FFFFFF'}} />
+              </IconButton>
+            </Link>
             <IconButton
               size="large"
               edge="end"
