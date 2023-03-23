@@ -44,9 +44,9 @@ function ProductBig(props) {
           </Button>
         </Box>
       </Grid>
-      <Grid container direction="column" justifyContent="center" alignItems="flex-start" spacing={5}>
+      <Grid container direction="column" justifyContent="center" alignItems="flex-start" spacing={3}>
         {ratings.map((rating) => (
-          <Grid item xs key={rating.id}>
+          <Grid item key={rating.id}>
             <RatingItemList rating={rating} />
           </Grid>
         ))}

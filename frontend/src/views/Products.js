@@ -11,10 +11,15 @@ function Products() {
 
   const message = location?.state?.message;
   const [alertOpen, setAlertOpen] = useState(location.state != null);
+
+  const handleCloseAlert = () => {
+    setAlertOpen(false);
+  };
+
   return (
     <Container maxWidth="md">
       {alertOpen && message && (
-        <Alert severity="error" sx={{width: '100%', marginBottom: '20px'}}>
+        <Alert severity="error" sx={{width: '100%', marginBottom: '20px'}} onClose={handleCloseAlert}>
           {message}
         </Alert>
       )}
