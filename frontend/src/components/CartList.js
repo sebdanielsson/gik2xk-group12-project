@@ -12,7 +12,7 @@ function CartList({products}) {
         gap: '16px',
         paddingBottom: '2rem',
       }}>
-      {products && products.map((product, index) => <CartItem key={index} product={product}></CartItem>)}
+      {products && products.map((product, index) => <CartItem key={index} product={product} />)}
     </Box>
   );
 }
