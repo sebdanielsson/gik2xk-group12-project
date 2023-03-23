@@ -6,7 +6,6 @@ import Typography from '@mui/material/Typography';
 import {CardActionArea} from '@mui/material';
 import RatingItem from './RatingItem';
 import {CardActions} from '@mui/material';
-import {Button} from '@mui/material';
 import {Link} from 'react-router-dom';
 
 function ProductCard(props) {
@@ -31,16 +30,17 @@ function ProductCard(props) {
             <Typography variant="body2" color="text.secondary" style={{marginBottom: 10}}>
               {product.description}
             </Typography>
-            <RatingItem />
+
+            <Typography variant="body1">{product.price} kr</Typography>
           </CardContent>
         </CardActionArea>
       </Link>
-      <CardActions style={{justifyContent: 'space-between'}}>
-        <Typography variant="body1">{product.price} kr</Typography>
-        <Button variant="text">Add to cart</Button>
+      <CardActions style={{justifyContent: 'flex'}}>
+        <RatingItem product={product} />
       </CardActions>
     </Card>
   );
 }
 
+<CardContent sx={{alignSelf: 'flex-end', textAlign: 'right'}}></CardContent>;
 export default ProductCard;

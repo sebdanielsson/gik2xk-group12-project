@@ -2,9 +2,12 @@ import React from 'react';
 import {Typography} from '@mui/material';
 import {Grid} from '@mui/material';
 import Image from 'mui-image';
+import {Button} from '@mui/material';
+import RatingItem from './RatingItem';
 
-function ProductBig({product}) {
-  return product ? (
+function ProductBig(props) {
+  const {product} = props;
+  return props ? (
     <Grid container spacing={3}>
       <Grid item xs={12} sm={6}>
         <Image
@@ -14,6 +17,7 @@ function ProductBig({product}) {
           }
         />
       </Grid>
+          
       <Grid item xs={12} sm={6}>
         <Typography variant="h5" component="h3">
           {product.name}
@@ -24,8 +28,12 @@ function ProductBig({product}) {
         <Typography variant="body1" component="p">
           {product.description}
         </Typography>
+        <Button variant="text">Add to cart </Button>
       </Grid>
+      <RatingItem product={product} />
     </Grid>
+   
+    
   ) : (
     <Typography>Product saknas</Typography>
   );
