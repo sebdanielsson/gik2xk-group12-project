@@ -17,7 +17,7 @@ function ProductBig({product}) {
           }
         />
       </Grid>
-      <Grid item xs={12} sm={6}>
+      <Grid item xs={12} sm={6} sx={{textAlign: 'left'}}>
         <Typography variant="h5" component="h3">
           {product.name}
         </Typography>
