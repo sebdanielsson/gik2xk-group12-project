@@ -4,6 +4,7 @@ import {Grid, Box, Button} from '@mui/material';
 import {addToCart} from '../models/ProductModel';
 import Image from 'mui-image';
 import AmountInput from './AmountInput';
+import {Link} from 'react-router-dom';
 
 function ProductBig({product}) {
   return product ? (
@@ -32,6 +33,11 @@ function ProductBig({product}) {
             Add to cart
           </Button>
         </Box>
+      </Grid>
+      <Grid item>
+        <Link to={`/products/${product.id}/edit`}>
+          <Button variant="filled">Edit product</Button>
+        </Link>
       </Grid>
     </Grid>
   ) : (
