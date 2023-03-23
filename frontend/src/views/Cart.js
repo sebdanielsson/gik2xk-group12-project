@@ -1,6 +1,6 @@
 import {useState, useEffect} from 'react';
 import {Typography, Container, TextField, Box} from '@mui/material';
-import {getCart} from '../models/cartModel';
+import {getCart} from '../models/CartModel';
 import CartList from '../components/CartList';
 
 function Cart() {
