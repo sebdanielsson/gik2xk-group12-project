@@ -21,13 +21,14 @@ function ProductBig(props) {
       </Grid>
       <Grid item xs={12} sm={6} sx={{textAlign: 'left'}}>
         <Typography variant="h5" component="h3">
-          {product.name}
+          {product.title}
         </Typography>
-        <Typography variant="h6" component="h4">
-          {product.price}
-        </Typography>
+        <RatingItem product={product} />
         <Typography variant="body1" component="p">
           {product.description}
+        </Typography>
+        <Typography variant="h6" component="h4">
+          {product.price} kr
         </Typography>
         <Box sx={{display: 'flex', alignItems: 'left'}}>
           <AmountInput />
@@ -40,9 +41,7 @@ function ProductBig(props) {
         <Link to={`/products/${product.id}/edit`}>
           <Button variant="filled">Edit product</Button>
         </Link>
-        <Button variant="text">Add to cart </Button>
       </Grid>
-      <RatingItem product={product} />
     </Grid>
   ) : (
     <Typography>Product saknas</Typography>
