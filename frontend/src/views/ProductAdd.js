@@ -1,7 +1,70 @@
-import {Typography} from '@mui/material';
+import {useState} from 'react';
+import {Container, TextField, Button} from '@mui/material';
+import {create} from '../models/ProductModel.js';
+import {Box} from '@mui/system';
 
-function ProductAdd() {
-  return <Typography variant="h1">ProductAdd</Typography>;
+function CreateProduct() {
+  const [title, setTitle] = useState('');
+  const [description, setDescription] = useState('');
+  const [imageUrl, setImageUrl] = useState('');
+  const [price, setPrice] = useState('');
+
+  const onSave = () => {
+    create({title, description, imageUrl, price}).then((product) => {
+      console.log('Created: ', product);
+      setTitle(product.title);
+      setDescription(product.description);
+      setImageUrl(product.imageUrl);
+      setPrice(product.price);
+    });
+  };
+
+  return (
+    <Container sx={{paddingBottom: '2rem', display: 'flex', flexDirection: 'column'}} maxWidth="md">
+      <TextField
+        size="small"
+        label="Titel"
+        variant="standard"
+        multiline
+        onChange={(event) => setTitle(event.target.value)}
+        margin="dense"
+        value={title}
+      />
+      <TextField
+        size="small"
+        label="Description"
+        variant="standard"
+        multiline
+        minRows={4}
+        onChange={(event) => setDescription(event.target.value)}
+        margin="dense"
+        value={description}
+      />
+      <TextField
+        size="small"
+        label="Image URL"
+        variant="standard"
+        multiline
+        onChange={(event) => setImageUrl(event.target.value)}
+        margin="dense"
+        value={imageUrl}
+      />
+      <TextField
+        size="small"
+        label="Price"
+        variant="standard"
+        multiline
+        onChange={(event) => setPrice(event.target.value)}
+        margin="dense"
+        value={price}
+      />
+      <Box>
+        <Button variant="contained" onClick={onSave} sx={{marginTop: '1rem'}} color="success">
+          Lägg till
+        </Button>
+      </Box>
+    </Container>
+  );
 }
 
-export default ProductAdd;
+export default CreateProduct;
