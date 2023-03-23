@@ -1,18 +1,22 @@
 import {useState, useEffect} from 'react';
-import {useParams} from 'react-router-dom';
-import {Container, TextField, Button} from '@mui/material';
-import {getOne, update} from '../models/ProductModel.js';
+import {useParams, useNavigate} from 'react-router-dom';
+import {Container, TextField, Button, Alert} from '@mui/material';
+import {getOne, update, remove} from '../models/ProductModel.js';
 import {Box, color} from '@mui/system';
+import DeleteIcon from '@mui/icons-material/Delete';
+import SaveIcon from '@mui/icons-material/Save';
 
 function EditProduct() {
   const params = useParams();
   const productId = params.id;
+  const navigate = useNavigate();
 
   const [product, setProduct] = useState({});
   const [title, setTitle] = useState('');
   const [description, setDescription] = useState('');
   const [imageUrl, setImageUrl] = useState('');
   const [price, setPrice] = useState('');
+  const [alert, setAlert] = useState(false);
 
   useEffect(() => {
     getOne(productId).then((product) => {
@@ -28,12 +32,18 @@ function EditProduct() {
   }, [product]);
 
   const onSave = () => {
-    update({id: productId, title, description, imageUrl, price}).then((product) => {
-      console.log('product', product);
-      setTitle(product.title);
-      setDescription(product.description);
-      setImageUrl(product.imageUrl);
-      setPrice(product.price);
+    update({id: productId, title, description, imageUrl, price})
+      .then((product) => {
+        setAlert({severity: 'success', message: 'Produkten har uppdaterats!'});
+      })
+      .catch(() => {
+        setAlert({severity: 'error', message: 'Produkten kunde inte uppdateras!'});
+      });
+  };
+
+  const onDelete = () => {
+    remove(productId).then(() => {
+      navigate('/', {state: {message: 'Produkten togs bort!'}});
     });
   };
 
@@ -76,11 +86,29 @@ function EditProduct() {
         margin="dense"
         value={price}
       />
-      <Box>
-        <Button variant="contained" onClick={onSave} sx={{marginTop: '1rem'}} color="success">
-          Uppdatera
-        </Button>
+      <Box display="flex" justifyContent="space-between" marginTop="1rem" sx={{marginBottom: '1.5rem'}}>
+        <Box>
+          <Button
+            variant="contained"
+            onClick={onSave}
+            sx={{marginTop: '1rem'}}
+            color="success"
+            startIcon={<SaveIcon />}>
+            Uppdatera
+          </Button>
+        </Box>
+        <Box>
+          <Button
+            variant="contained"
+            onClick={onDelete}
+            sx={{marginTop: '1rem'}}
+            color="error"
+            startIcon={<DeleteIcon />}>
+            Ta bort
+          </Button>
+        </Box>
       </Box>
+      {alert && <Alert severity={alert.severity}>{alert.message}</Alert>}
     </Container>
   );
 }
