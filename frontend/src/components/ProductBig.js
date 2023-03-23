@@ -5,9 +5,12 @@ import {addToCart} from '../models/ProductModel';
 import Image from 'mui-image';
 import AmountInput from './AmountInput';
 import {Link} from 'react-router-dom';
+import {Button} from '@mui/material';
+import RatingItem from './RatingItem';
 
-function ProductBig({product}) {
-  return product ? (
+function ProductBig(props) {
+  const {product} = props;
+  return props ? (
     <Grid container spacing={3}>
       <Grid item xs={12} sm={6}>
         <Image
@@ -38,8 +41,12 @@ function ProductBig({product}) {
         <Link to={`/products/${product.id}/edit`}>
           <Button variant="filled">Edit product</Button>
         </Link>
+        <Button variant="text">Add to cart </Button>
       </Grid>
+      <RatingItem product={product} />
     </Grid>
+   
+    
   ) : (
     <Typography>Product saknas</Typography>
   );

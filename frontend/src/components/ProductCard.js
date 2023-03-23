@@ -30,15 +30,18 @@ function ProductCard(props) {
             <Typography variant="body2" color="text.secondary" style={{marginBottom: 10}}>
               {product.description}
             </Typography>
-            <RatingItem />
+
+            <Typography variant="body1">{product.price} kr</Typography>
           </CardContent>
         </CardActionArea>
       </Link>
       <CardActions style={{justifyContent: 'space-between'}}>
         <Typography variant="body1">{product.price} kr</Typography>
+        <RatingItem product={product} />
       </CardActions>
     </Card>
   );
 }
 
+<CardContent sx={{alignSelf: 'flex-end', textAlign: 'right'}}></CardContent>;
 export default ProductCard;

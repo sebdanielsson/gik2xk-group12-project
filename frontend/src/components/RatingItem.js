@@ -4,15 +4,28 @@ import Rating from '@mui/material/Rating';
 import Typography from '@mui/material/Typography';
 
 function RatingItem(props) {
-  const [value, setValue] = React.useState(4);
-  /* console.log("Test"+props) */
+  var averageRating;
+  if (props.product.hasOwnProperty("id")) {
+    var totalRating = 0;
+    var ratingArray = props.product.ratings;
+    ratingArray.forEach((rating) => {
+      totalRating += rating.rating;
+    });
+    //validering av raderna om =0 vänstersida annars höger
+    averageRating = ratingArray.length === 0 ? 0 : (totalRating / ratingArray.length);
+  } else {
+    averageRating = 0;
+  }
+
   return (
     <Box
       sx={{
         '& > legend': {mt: 2},
       }}>
       <Typography></Typography>
-      <Rating name="read-only" value={value} size="small" readOnly />
+      <Typography>
+        <Rating name="half-rating-read" value={averageRating} precision={0.5} size="small" readOnly></Rating>({averageRating})
+      </Typography>
     </Box>
   );
 }

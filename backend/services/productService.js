@@ -1,10 +1,18 @@
 const {createResponseSuccess, createResponseError, createResponseMessage} = require('../helpers/responseHelper');
 const db = require('../models');
 
-// Get all products
+// Get all products + include rating
 async function getAll() {
   try {
-    const allProducts = await db.product.findAll({});
+    const allProducts = await db.product.findAll({
+      include: [
+        {
+          model: db.rating,
+          required:false
+        },
+      ],
+    });
+
     console.log(allProducts);
     return createResponseSuccess(allProducts);
   } catch (error) {

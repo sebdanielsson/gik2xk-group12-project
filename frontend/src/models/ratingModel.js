@@ -1,7 +1,8 @@
 import api from '../api.js';
 
-export async function getRatingById() {
-  const result = await api.get('/ratings');
+
+export async function getAll() {
+  const result = await api.get('products/id/ratings');
 
   if (result.status === 200) return result.data;
   else {
