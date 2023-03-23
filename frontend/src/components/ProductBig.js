@@ -4,10 +4,13 @@ import {addToCart} from '../models/ProductModel';
 import Image from 'mui-image';
 import AmountInput from './AmountInput';
 import RatingItem from './RatingItem';
+import RatingItemList from './RatingItemList';
 
 function ProductBig(props) {
   const {product} = props;
-  return props ? (
+  const {ratings} = props.product.hasOwnProperty('id') ? props.product.ratings : new Array();
+
+  return props.product.hasOwnProperty('id') ? (
     <Grid container spacing={3}>
       <Grid item xs={12} sm={6}>
         <Image
@@ -39,6 +42,21 @@ function ProductBig(props) {
         <Button variant="filled" color="primary" href={`/products/${product.id}/edit`} component={Link}>
           Edit product
         </Button>
+
+        {/*         <Grid container direction="row" justifyContent="center" alignItems="flex-start" spacing={2}>
+      {products.map((product) => (
+        <Grid item xs key={product.id}>
+          <ProductCard product={product} />
+        </Grid>
+      ))}
+    </Grid> */}
+      </Grid>
+      <Grid container direction="row" justifyContent="center" alignItems="flex-start" spacing={2}>
+        {ratings.map((rating) => (
+          <Grid item xs key={rating.id}>
+            <RatingItemList rating={rating} />
+          </Grid>
+        ))}
       </Grid>
     </Grid>
   ) : (
