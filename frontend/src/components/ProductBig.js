@@ -1,6 +1,7 @@
 import React from 'react';
 import {Typography} from '@mui/material';
-import {Grid} from '@mui/material';
+import {Grid, Button} from '@mui/material';
+import {addToCart} from '../models/ProductModel';
 import Image from 'mui-image';
 
 function ProductBig({product}) {
@@ -24,6 +25,9 @@ function ProductBig({product}) {
         <Typography variant="body1" component="p">
           {product.description}
         </Typography>
+        <Button variant="text" onClick={() => addToCart(product.id, 3, 1)}>
+          Add to cart
+        </Button>
       </Grid>
     </Grid>
   ) : (
