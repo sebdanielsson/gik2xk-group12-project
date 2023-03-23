@@ -29,7 +29,7 @@ router.put('/:id', (req, res) => {
         where: {id: id},
       })
       .then((result) => {
-        res.send('Product updated.');
+        res.json(result);
       });
   }
 });
