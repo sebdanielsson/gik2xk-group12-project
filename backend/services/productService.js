@@ -8,7 +8,7 @@ async function getAll() {
       include: [
         {
           model: db.rating,
-          required:false
+          required: false,
         },
       ],
     });
@@ -47,12 +47,6 @@ async function getProductById(id) {
       where: {id},
       include: [db.rating],
     });
-
-    /*       const rating = await db.rating.findAll({
-        where: {id},
-        include: [db.rating],
-      }); */
-    /* Om allt blev bra, returnera post */
     return createResponseSuccess(product);
   } catch (error) {
     return createResponseError(error.status, error.message);
