@@ -35,3 +35,25 @@ export async function addToCart(productId, user_id, quantity) {
     return {};
   }
 }
+
+export async function update(product) {
+  const result = await api.put(`/products/${product.id}`, product);
+
+  if (result.status === 200) return result.data;
+  else {
+    console.log(result.status);
+    console.log(result.data);
+    return {};
+  }
+}
+
+export async function remove(productId) {
+  const result = await api.delete(`/products/${productId}`);
+
+  if (result.status === 200) return result.data;
+  else {
+    console.log(result.status);
+    console.log(result.data);
+    return {};
+  }
+}
