@@ -26,7 +26,7 @@ function ProductBig(props) {
         />
       </Grid>
       <Grid item xs={12} sm={6} sx={{textAlign: 'left'}}>
-        <Typography variant="h5" component="h3">
+        <Typography variant="h3" component="h3">
           {product.title}
         </Typography>
         <RatingItem product={product} />
@@ -43,13 +43,16 @@ function ProductBig(props) {
             Add to cart
           </Button>
         </Box>
-      </Grid>
-      <Grid container direction="column" justifyContent="center" alignItems="flex-start" spacing={3}>
-        {ratings.map((rating) => (
-          <Grid item key={rating.id}>
-            <RatingItemList rating={rating} />
-          </Grid>
-        ))}
+        <Grid container direction="column" justifyContent="center" alignItems="flex-start">
+          <Typography variant="h6" component="h4">
+            Ratings
+          </Typography>
+          {ratings.map((rating) => (
+            <Grid item key={rating.id} style={{paddingTop: '10px'}}>
+              <RatingItemList rating={rating} />
+            </Grid>
+          ))}
+        </Grid>
       </Grid>
       <Fab
         href={`/products/${product.id}/edit`}
