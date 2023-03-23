@@ -5,19 +5,17 @@ function NumberInput() {
   const [value, setValue] = useState(1);
 
   return (
-    <Tooltip title="Amount">
+    <Tooltip title="User ID">
       <div style={{display: 'flex', alignItems: 'center', marginRight: '10px'}}>
         <TextField
           type="number"
           size="small"
-          value={value}
           onChange={(event) => setValue(event.target.value)}
           InputProps={{
             inputProps: {
-              min: 1,
               style: {textAlign: 'center'},
             },
-            style: {appearance: 'none', maxWidth: 80},
+            style: {appearance: 'none', maxWidth: 60},
           }}
         />
       </div>

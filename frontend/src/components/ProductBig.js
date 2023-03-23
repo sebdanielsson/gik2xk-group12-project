@@ -1,8 +1,9 @@
 import React from 'react';
-import {Grid, Box, Button, Link, Typography} from '@mui/material';
+import {Grid, Box, Button, Link, Typography, TextField} from '@mui/material';
 import {addToCart} from '../models/ProductModel';
 import Image from 'mui-image';
 import AmountInput from './AmountInput';
+import UserIdInput from './UserIdInput';
 import RatingItem from './RatingItem';
 import RatingItemList from './RatingItemList';
 
@@ -38,6 +39,7 @@ function ProductBig(props) {
           {product.price} kr
         </Typography>
         <Box sx={{display: 'flex', alignItems: 'left'}}>
+          <UserIdInput />
           <AmountInput />
           <Button variant="text" onClick={() => addToCart(product.id, 3, 1)}>
             Add to cart
@@ -48,14 +50,6 @@ function ProductBig(props) {
         <Button variant="filled" color="primary" href={`/products/${product.id}/edit`} component={Link}>
           Edit product
         </Button>
-
-        {/*         <Grid container direction="row" justifyContent="center" alignItems="flex-start" spacing={2}>
-      {products.map((product) => (
-        <Grid item xs key={product.id}>
-          <ProductCard product={product} />
-        </Grid>
-      ))}
-    </Grid> */}
       </Grid>
       <Grid container direction="column" justifyContent="center" alignItems="flex-start" spacing={5}>
         {ratings.map((rating) => (
