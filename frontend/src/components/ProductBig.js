@@ -1,10 +1,8 @@
 import React from 'react';
-import {Typography} from '@mui/material';
-import {Grid, Box, Button} from '@mui/material';
+import {Grid, Box, Button, Link, Typography} from '@mui/material';
 import {addToCart} from '../models/ProductModel';
 import Image from 'mui-image';
 import AmountInput from './AmountInput';
-import {Link} from 'react-router-dom';
 import RatingItem from './RatingItem';
 
 function ProductBig(props) {
@@ -38,9 +36,9 @@ function ProductBig(props) {
         </Box>
       </Grid>
       <Grid item>
-        <Link to={`/products/${product.id}/edit`}>
-          <Button variant="filled">Edit product</Button>
-        </Link>
+        <Button variant="filled" color="primary" href={`/products/${product.id}/edit`} component={Link}>
+          Edit product
+        </Button>
       </Grid>
     </Grid>
   ) : (

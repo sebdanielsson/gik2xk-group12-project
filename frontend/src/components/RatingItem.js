@@ -1,7 +1,6 @@
 import * as React from 'react';
 import Box from '@mui/material/Box';
 import Rating from '@mui/material/Rating';
-import Typography from '@mui/material/Typography';
 
 function RatingItem(props) {
   var averageRating;
@@ -22,11 +21,14 @@ function RatingItem(props) {
       sx={{
         '& > legend': {mt: 2},
       }}>
-      <Typography></Typography>
-      <Typography>
-        <Rating name="half-rating-read" value={averageRating} precision={0.5} size="small" readOnly></Rating>(
-        {averageRating})
-      </Typography>
+      <Rating
+        name="half-rating-read"
+        value={averageRating}
+        precision={0.5}
+        size="small"
+        readOnly
+        style={{display: 'flex', alignItems: 'center'}}
+      />
     </Box>
   );
 }
