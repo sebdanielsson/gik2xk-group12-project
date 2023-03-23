@@ -10,13 +10,21 @@ function CreateProduct() {
   const [price, setPrice] = useState('');
 
   const onSave = () => {
-    create({title, description, imageUrl, price}).then((product) => {
-      console.log('Created: ', product);
-      setTitle(product.title);
-      setDescription(product.description);
-      setImageUrl(product.imageUrl);
-      setPrice(product.price);
-    });
+    create({title, description, imageUrl, price})
+      .then((product) => {
+        console.log('Created: ', product);
+        setTitle(product.title);
+        setDescription(product.description);
+        setImageUrl(product.imageUrl);
+        setPrice(product.price);
+      })
+      .finally(() => {
+        setTitle('');
+        setDescription('');
+        setImageUrl('');
+        setPrice('');
+        window.location.href = '/products';
+      });
   };
 
   return (
