@@ -13,6 +13,7 @@ function NumberInput() {
           onChange={(event) => setValue(event.target.value)}
           InputProps={{
             inputProps: {
+              min: 0,
               style: {textAlign: 'center'},
             },
             style: {appearance: 'none', maxWidth: 60},
