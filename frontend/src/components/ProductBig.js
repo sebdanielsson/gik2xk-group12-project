@@ -5,7 +5,6 @@ import {addToCart} from '../models/ProductModel';
 import Image from 'mui-image';
 import AmountInput from './AmountInput';
 import {Link} from 'react-router-dom';
-import {Button} from '@mui/material';
 import RatingItem from './RatingItem';
 
 function ProductBig(props) {
@@ -45,8 +44,6 @@ function ProductBig(props) {
       </Grid>
       <RatingItem product={product} />
     </Grid>
-   
-    
   ) : (
     <Typography>Product saknas</Typography>
   );

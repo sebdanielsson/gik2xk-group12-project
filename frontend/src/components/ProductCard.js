@@ -30,8 +30,6 @@ function ProductCard(props) {
             <Typography variant="body2" color="text.secondary" style={{marginBottom: 10}}>
               {product.description}
             </Typography>
-
-            <Typography variant="body1">{product.price} kr</Typography>
           </CardContent>
         </CardActionArea>
       </Link>

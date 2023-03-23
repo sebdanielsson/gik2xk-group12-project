@@ -5,14 +5,14 @@ import Typography from '@mui/material/Typography';
 
 function RatingItem(props) {
   var averageRating;
-  if (props.product.hasOwnProperty("id")) {
+  if (props.product.hasOwnProperty('id')) {
     var totalRating = 0;
     var ratingArray = props.product.ratings;
     ratingArray.forEach((rating) => {
       totalRating += rating.rating;
     });
     //validering av raderna om =0 vänstersida annars höger
-    averageRating = ratingArray.length === 0 ? 0 : (totalRating / ratingArray.length);
+    averageRating = ratingArray.length === 0 ? 0 : totalRating / ratingArray.length;
   } else {
     averageRating = 0;
   }
@@ -24,7 +24,8 @@ function RatingItem(props) {
       }}>
       <Typography></Typography>
       <Typography>
-        <Rating name="half-rating-read" value={averageRating} precision={0.5} size="small" readOnly></Rating>({averageRating})
+        <Rating name="half-rating-read" value={averageRating} precision={0.5} size="small" readOnly></Rating>(
+        {averageRating})
       </Typography>
     </Box>
   );

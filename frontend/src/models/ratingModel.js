@@ -1,6 +1,5 @@
 import api from '../api.js';
 
-
 export async function getAll() {
   const result = await api.get('products/id/ratings');
 
@@ -10,4 +9,4 @@ export async function getAll() {
     console.log(result.data);
     return [];
   }
-} 
+}

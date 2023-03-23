@@ -3,7 +3,6 @@ import {useParams} from 'react-router-dom';
 import {Container} from '@mui/system';
 import ProductBig from '../components/ProductBig';
 import {getOne} from '../models/ProductModel';
-import RatingItem from '../components/RatingItem';
 
 function ProductDetail() {
   const params = useParams();
