@@ -30,7 +30,6 @@ function NumberInput() {
             style: {textAlign: 'center'},
           },
           style: {appearance: 'none', maxWidth: 64},
-          disableUnderline: true,
         }}
       />
       <Button onClick={handleIncrease} size="small">
