@@ -59,7 +59,11 @@ export async function update(product) {
 }
 
 export async function remove(productId) {
-  const result = await api.delete(`/products/${productId}`);
+  const result = await api.delete(`/products`, {
+    data: {
+      id: productId,
+    },
+  });
 
   if (result.status === 200) return result.data;
   else {
