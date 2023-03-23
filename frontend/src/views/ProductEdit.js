@@ -2,7 +2,7 @@ import {useState, useEffect} from 'react';
 import {useParams, useNavigate} from 'react-router-dom';
 import {Container, TextField, Button, Alert} from '@mui/material';
 import {getOne, update, remove} from '../models/ProductModel.js';
-import {Box, color} from '@mui/system';
+import {Box} from '@mui/system';
 import DeleteIcon from '@mui/icons-material/Delete';
 import SaveIcon from '@mui/icons-material/Save';
 

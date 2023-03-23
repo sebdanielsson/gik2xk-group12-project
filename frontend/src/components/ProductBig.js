@@ -1,5 +1,6 @@
 import React from 'react';
-import {Grid, Box, Button, Link, Typography, TextField} from '@mui/material';
+import {Grid, Box, Button, Typography, Fab} from '@mui/material';
+import EditIcon from '@mui/icons-material/Edit';
 import {addToCart} from '../models/ProductModel';
 import Image from 'mui-image';
 import AmountInput from './AmountInput';
@@ -9,10 +10,7 @@ import RatingItemList from './RatingItemList';
 
 function ProductBig(props) {
   const {product} = props;
-  const [ratings, setRatings] = React.useState(
-    props.product.hasOwnProperty('id') ? props.product.ratings : new Array(),
-  );
-  /*   const {ratings} = props.product.hasOwnProperty('id') ? props.product.ratings : new Array(); */
+  const [ratings, setRatings] = React.useState(product.hasOwnProperty('id') ? product.ratings : []);
   if (product.hasOwnProperty('id') && ratings.length === 0 && product.ratings.length > 0) {
     setRatings(product.ratings);
   }
@@ -46,11 +44,6 @@ function ProductBig(props) {
           </Button>
         </Box>
       </Grid>
-      <Grid item>
-        <Button variant="filled" color="primary" href={`/products/${product.id}/edit`} component={Link}>
-          Edit product
-        </Button>
-      </Grid>
       <Grid container direction="column" justifyContent="center" alignItems="flex-start" spacing={5}>
         {ratings.map((rating) => (
           <Grid item xs key={rating.id}>
@@ -58,6 +51,14 @@ function ProductBig(props) {
           </Grid>
         ))}
       </Grid>
+      <Fab
+        href={`/products/${product.id}/edit`}
+        size="large"
+        color="primary"
+        aria-label="edit"
+        style={{position: 'fixed', bottom: '50px', right: '50px'}}>
+        <EditIcon />
+      </Fab>
     </Grid>
   ) : (
     <Typography>Product saknas</Typography>

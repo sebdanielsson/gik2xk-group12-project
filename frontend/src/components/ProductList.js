@@ -1,7 +1,8 @@
 import ProductCard from './ProductCard';
 import {getAll} from '../models/ProductModel';
 import {useEffect, useState} from 'react';
-import {Grid} from '@mui/material';
+import {Grid, Fab} from '@mui/material';
+import AddIcon from '@mui/icons-material/Add';
 
 function ProductList({pathname}) {
   const [products, setProducts] = useState([]);
@@ -17,6 +18,14 @@ function ProductList({pathname}) {
           <ProductCard product={product} />
         </Grid>
       ))}
+      <Fab
+        href="/products/new"
+        size="large"
+        color="primary"
+        aria-label="add"
+        style={{position: 'fixed', bottom: '50px', right: '50px'}}>
+        <AddIcon />
+      </Fab>
     </Grid>
   );
 }
