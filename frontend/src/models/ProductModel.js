@@ -22,6 +22,17 @@ export async function getOne(productId) {
   }
 }
 
+export async function create(product) {
+  const result = await api.post('/products', product);
+
+  if (result.status === 201) return result.data;
+  else {
+    console.log(result.status);
+    console.log(result.data);
+    return {};
+  }
+}
+
 export async function addToCart(productId, user_id, quantity) {
   const result = await api.post(`/products/${productId}/addToCart`, {
     user_id,
