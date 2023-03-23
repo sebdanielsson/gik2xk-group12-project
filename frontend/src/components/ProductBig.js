@@ -8,8 +8,14 @@ import RatingItemList from './RatingItemList';
 
 function ProductBig(props) {
   const {product} = props;
-  const {ratings} = props.product.hasOwnProperty('id') ? props.product.ratings : new Array();
-
+  const [ratings, setRatings] = React.useState(
+    props.product.hasOwnProperty('id') ? props.product.ratings : new Array(),
+  );
+  /*   const {ratings} = props.product.hasOwnProperty('id') ? props.product.ratings : new Array(); */
+  if (product.hasOwnProperty('id') && ratings.length === 0 && product.ratings.length > 0) {
+    setRatings(product.ratings);
+  }
+  console.log(ratings);
   return props.product.hasOwnProperty('id') ? (
     <Grid container spacing={3}>
       <Grid item xs={12} sm={6}>
@@ -51,7 +57,7 @@ function ProductBig(props) {
       ))}
     </Grid> */}
       </Grid>
-      <Grid container direction="row" justifyContent="center" alignItems="flex-start" spacing={2}>
+      <Grid container direction="column" justifyContent="center" alignItems="flex-start" spacing={5}>
         {ratings.map((rating) => (
           <Grid item xs key={rating.id}>
             <RatingItemList rating={rating} />

@@ -1,26 +1,22 @@
 import * as React from 'react';
-import Box from '@mui/material/Box';
 import Rating from '@mui/material/Rating';
-import { Grid } from '@mui/material';
+import { Box } from '@mui/system';
 
-function RatingItemList(rating) {
- 
-  return (
-
-        <Box item xs key={rating.id}>
-      sx={{
-        '& > legend': {mt: 2},
-      }}
-      
+function RatingItemList(props) {
+  var currentRating = props.rating
+  return ( 
+    
+    <Box> {currentRating.id}
       <Rating
         name="half-rating-read"
-        value={rating.rating}
+        value={currentRating.rating}
         precision={0.5}
         size="small"
         readOnly
         style={{display: 'flex', alignItems: 'center'}}
       />
-    </Box>
+     </Box>
+  
     
 
          
