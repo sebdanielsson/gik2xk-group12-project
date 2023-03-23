@@ -24,7 +24,7 @@ function RatingItem(props) {
       }}>
       <Typography></Typography>
       <Typography>
-        <Rating name="read-only" value={averageRating} size="small" readOnly></Rating>({averageRating})
+        <Rating name="half-rating-read" value={averageRating} precision={0.5} size="small" readOnly></Rating>({averageRating})
       </Typography>
     </Box>
   );
