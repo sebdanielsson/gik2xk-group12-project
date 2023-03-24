@@ -13,7 +13,6 @@ async function getAll() {
       ],
     });
 
-    console.log(allProducts);
     return createResponseSuccess(allProducts);
   } catch (error) {
     return createResponseError(error.status, error.message);
@@ -96,17 +95,13 @@ async function _findOrCreateCart(user_id) {
     });
 
     if (cart) {
-      // If there is an incomplete cart, return its id
-      console.log('Cart hittades: ', cart.id);
       return cart;
     } else {
       // If there is no incomplete cart, create a new one and return its id
-      console.log('Cart hittades ej! Skapar nytt...');
       const newCart = await db.cart.create({
         userId: user_id,
         paid: false,
       });
-      console.log('new cart', newCart);
       return newCart;
     }
   } catch (error) {
@@ -121,7 +116,6 @@ async function addToCart(user_id, product_id, quantity) {
     const cart = await _findOrCreateCart(user_id);
     // Get the product by its id
     const product = await db.product.findByPk(product_id);
-    console.log('DEBUG: Cart id: ', cart.id);
     // cartRow = await findByPk cart.id && product.id
     let cartRow = await db.cartRow.findOne({
       where: {
