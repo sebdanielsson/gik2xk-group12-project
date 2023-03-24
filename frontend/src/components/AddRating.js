@@ -9,6 +9,7 @@ function AddRating({productId}) {
     setRating(newValue);
     try {
       await addRating(productId, newValue);
+      window.location.reload(false);
     } catch (error) {
       console.error('Error adding rating:', error);
     }
