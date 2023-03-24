@@ -7,7 +7,7 @@ import {CardActionArea} from '@mui/material';
 import RatingItem from './RatingItem';
 import {CardActions} from '@mui/material';
 import {Link} from 'react-router-dom';
-import { truncate } from '../formatHelper';
+import {truncate} from '../formatHelper';
 
 function ProductCard(props) {
   const {product} = props;
@@ -29,7 +29,7 @@ function ProductCard(props) {
               {product.title}
             </Typography>
             <Typography variant="body2" color="text.secondary" style={{marginBottom: 10}}>
-              {truncate(product.description,5)}
+              {truncate(product.description, 300)}
             </Typography>
           </CardContent>
         </CardActionArea>
