@@ -1,9 +1,6 @@
-import {useState} from 'react';
 import {TextField, Tooltip} from '@mui/material';
 
-function NumberInput() {
-  const [value, setValue] = useState(1);
-
+function AmountInput({value, onChange}) {
   return (
     <Tooltip title="Amount">
       <div style={{display: 'flex', alignItems: 'center', marginRight: '10px'}}>
@@ -11,7 +8,7 @@ function NumberInput() {
           type="number"
           size="small"
           value={value}
-          onChange={(event) => setValue(event.target.value)}
+          onChange={onChange}
           InputProps={{
             inputProps: {
               min: 1,
@@ -25,4 +22,4 @@ function NumberInput() {
   );
 }
 
-export default NumberInput;
+export default AmountInput;

@@ -14,7 +14,19 @@ function ProductBig(props) {
   if (product.hasOwnProperty('id') && ratings.length === 0 && product.ratings.length > 0) {
     setRatings(product.ratings);
   }
-  console.log(ratings);
+
+  const [userId, setUserId] = React.useState(1); // Add this line
+  const [amount, setAmount] = React.useState(1); // Add this line
+
+  // Add this handler function
+  const handleUserIdChange = (event) => {
+    setUserId(event.target.value);
+  };
+
+  const handleAmountChange = (event) => {
+    setAmount(event.target.value);
+  };
+
   return props.product.hasOwnProperty('id') ? (
     <Grid container spacing={3}>
       <Grid item xs={12} sm={6}>
@@ -37,9 +49,9 @@ function ProductBig(props) {
           {product.price} kr
         </Typography>
         <Box sx={{display: 'flex', alignItems: 'left'}}>
-          <UserIdInput />
-          <AmountInput />
-          <Button variant="text" onClick={() => addToCart(product.id, 3, 1)}>
+          <UserIdInput value={userId} onChange={handleUserIdChange} />
+          <AmountInput value={amount} onChange={handleAmountChange} />
+          <Button variant="text" onClick={() => addToCart(product.id, userId, amount)}>
             Add to cart
           </Button>
         </Box>

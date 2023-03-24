@@ -1,16 +1,14 @@
-import {useState} from 'react';
 import {TextField, Tooltip} from '@mui/material';
 
-function NumberInput() {
-  const [value, setValue] = useState(1);
-
+function UserIdInput({value, onChange}) {
   return (
     <Tooltip title="User ID">
       <div style={{display: 'flex', alignItems: 'center', marginRight: '10px'}}>
         <TextField
           type="number"
           size="small"
-          onChange={(event) => setValue(event.target.value)}
+          value={value}
+          onChange={onChange}
           InputProps={{
             inputProps: {
               min: 0,
@@ -24,4 +22,4 @@ function NumberInput() {
   );
 }
 
-export default NumberInput;
+export default UserIdInput;
