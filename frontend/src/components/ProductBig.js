@@ -7,6 +7,7 @@ import AmountInput from './AmountInput';
 import UserIdInput from './UserIdInput';
 import RatingItem from './RatingItem';
 import RatingItemList from './RatingItemList';
+import AddRating from './AddRating';
 
 function ProductBig(props) {
   const {product} = props;
@@ -15,10 +16,9 @@ function ProductBig(props) {
     setRatings(product.ratings);
   }
 
-  const [userId, setUserId] = React.useState(1); // Add this line
-  const [amount, setAmount] = React.useState(1); // Add this line
+  const [userId, setUserId] = React.useState(1);
+  const [amount, setAmount] = React.useState(1);
 
-  // Add this handler function
   const handleUserIdChange = (event) => {
     setUserId(event.target.value);
   };
@@ -56,7 +56,11 @@ function ProductBig(props) {
           </Button>
         </Box>
         <Grid container direction="column" justifyContent="center" alignItems="flex-start">
-          <Typography variant="h6" component="h4">
+          <Typography variant="h6" component="h4" style={{marginTop: '20px'}}>
+            Add rating
+          </Typography>
+          <AddRating productId={product.id} />
+          <Typography variant="h6" component="h4" style={{marginTop: '20px'}}>
             Ratings
           </Typography>
           {ratings.map((rating) => (

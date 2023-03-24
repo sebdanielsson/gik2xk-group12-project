@@ -72,3 +72,16 @@ export async function remove(productId) {
     return {};
   }
 }
+
+export async function addRating(productId, rating) {
+  const result = await api.post(`/products/${productId}/addRating`, {
+    rating,
+  });
+
+  if (result.status === 200) return result.data;
+  else {
+    console.log(result.status);
+    console.log(result.data);
+    return {};
+  }
+}
