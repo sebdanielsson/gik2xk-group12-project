@@ -128,5 +128,3 @@ dist
 
 # macOS
 .DS_Store
-
-backend/config/config.json
