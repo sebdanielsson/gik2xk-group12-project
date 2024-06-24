@@ -16,7 +16,10 @@ jobs:
           bun-version-file: ".bun-version"
 
       - run: bun install
+        working-directory: frontend
 
       - run: bun run lint
+        working-directory: frontend
 
       - run: bun --bun run build
+        working-directory: frontend
