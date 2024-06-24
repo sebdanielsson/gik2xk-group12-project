@@ -1,7 +1,7 @@
+import { Routes, Route } from 'react-router-dom';
+import { CssBaseline } from '@mui/material';
+import { Container } from '@mui/system';
 import './App.css';
-import {Routes, Route} from 'react-router-dom';
-import {CssBaseline} from '@mui/material';
-import {Container} from '@mui/system';
 import Products from './views/Products';
 import ProductDetail from './views/ProductDetail';
 import ProductEdit from './views/ProductEdit';
@@ -15,7 +15,7 @@ function App() {
       <CssBaseline />
       <AppBar position="fixed" />
 
-      <Container sx={{marginY: '2rem'}}>
+      <Container sx={{ marginY: '2rem' }}>
         <Routes>
           <Route exact path="/" element={<Products />}></Route>
           <Route exact path="/products" element={<Products />}></Route>
